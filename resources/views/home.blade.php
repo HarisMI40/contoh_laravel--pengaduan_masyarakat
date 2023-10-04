@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  {{$judul}}
+@extends('layouts.app')
 
-  @foreach($pengaduan as $pengaduan)
-    <p>{{$pengaduan->nik}} - {{ $pengaduan->isi_laporan}}</p>
-  @endforeach
-</body>
-</html>
+@section('content')
+    {{ $judul }}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">NIK</th>
+                <th scope="col">Isi</th>
+                <th scope="col">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($pengaduan as $pengaduan)
+                <tr>
+                    <th scope="row">{{ $pengaduan->nik }}</th>
+                    <td>{{ $pengaduan->isi_laporan }}</td>
+                    <td>
+                        {{-- <a href="hapus.php?id=<?= $pengaduan->id_pengaduan ?>">Hapus</a> --}}
+                        <a href="/hapus-pengaduan/{{$pengaduan->id_pengaduan}}">Hapus</a>
+                        <a href="/detail-pengaduan/{{$pengaduan->id_pengaduan}}">Detail</a>
+                    </td>
+
+                </tr>
+            @endforeach
+
+
+        </tbody>
+    </table>
+@endsection

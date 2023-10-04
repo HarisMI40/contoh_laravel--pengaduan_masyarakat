@@ -10,11 +10,16 @@ use Illuminate\Support\Facades\DB;
 
 class PengaduanController extends Controller
 {
+    function tampil_about($id){
+        echo "ini halaman about di Controller Pengaduan id : $id";
+    }
+
+
    function index(){
 
     $judul = "Selamat Datang";
     $pengaduan = DB::table('pengaduan')->get();
- 
+
 
     return view('home', ['judul' => $judul, 'pengaduan' => $pengaduan]);
    }
@@ -22,6 +27,7 @@ class PengaduanController extends Controller
   function tampil_pengaduan(){
     return view('isi-pengaduan');
   }
+
 
   function proses_tambah_pengaduan(Request $request){
     // vaidasi
@@ -42,5 +48,19 @@ class PengaduanController extends Controller
     ]);
 
     return redirect('/home');
+  }
+
+  function hapus($id){
+    DB::table('pengaduan')->where('id_pengaduan', '=', $id)->delete();
+
+    return redirect()->back();
+  }
+
+  function detail_pengaduan($id){
+    $pengaduan = DB::table('pengaduan')
+                ->where('id_pengaduan', '=', $id)
+                ->first();
+    return view("detail_pengaduan", ["data" => $pengaduan]);
+
   }
 }
