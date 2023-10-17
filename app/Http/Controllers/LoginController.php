@@ -14,16 +14,18 @@ class LoginController extends Controller
         return view("auth.login");
     }
     function login(Request $request){
-        // return $request->only("username", "password");
-        if(Auth::attempt($request->only("username", "password"))){
-            return redirect("/");
+
+       $dataLogin = $request->only("username", "password"); // buat ambil data input
+        if(Auth::attempt($dataLogin)){ // proses login
+            return redirect("/home");
+        }else{
+            return redirect("/login");
         }
 
-        return "gagal Login";
     }
 
     function logout(){
-        Session::flush();
+        // Session::flush();
         Auth::logout();
 
         return redirect('/login');
