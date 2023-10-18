@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    {{ $judul }}
+    <h1>{{ $judul }}</h1>
+
     <table class="table table-bordered">
         <thead>
             <tr>

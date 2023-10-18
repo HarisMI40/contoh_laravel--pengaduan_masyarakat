@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+{{-- KOmentarrr --}}
     <form action="isi-pengaduan" method="POST" enctype="multipart/form-data">
         @method("POST")
         @csrf
