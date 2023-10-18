@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Masyarakat;
 use App\Models\Pengaduan;
 
@@ -14,12 +15,12 @@ class PengaduanController extends Controller
     function index(){
         $data = Pengaduan::all();
 
-        
+
         return view('home', ['data' => $data]);
     }
 
     function tampil_isi_pengaduan(){
-        
+
         return view('isi-pengaduan');
     }
 

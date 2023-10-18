@@ -23,11 +23,11 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
     Route::get('/home', [PengaduanController::class, 'index']);
     Route::get('/isi-pengaduan', [PengaduanController::class, 'tampil_pengaduan']);
     Route::post('/isi-pengaduan', [PengaduanController::class, 'proses_tambah_pengaduan']);
-});
+// });
 
 Route::get("/register", [AuthController::class, 'register']);
 Route::post("/register", [AuthController::class, 'store']);
