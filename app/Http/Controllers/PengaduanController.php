@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class PengaduanController extends Controller
 {
    function index(){
-    return Auth::user();
+    // return Auth::user();
     $judul = "Selamat Datang";
     // Query Builder
     //  $pengaduan = DB::table('pengaduan')->get();
