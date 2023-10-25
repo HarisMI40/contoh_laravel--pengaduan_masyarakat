@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>{{ $judul }}</h1>
-
+    <h2>{{auth()->user()->username}}</h2>
     <table class="table table-bordered">
         <thead>
             <tr>

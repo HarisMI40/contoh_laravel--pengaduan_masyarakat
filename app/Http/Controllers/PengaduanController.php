@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class PengaduanController extends Controller
 {
    function index(){
-    return Auth::user();
+    // return Auth::user();
     $judul = "Selamat Datang";
     // Query Builder
     //  $pengaduan = DB::table('pengaduan')->get();
@@ -30,6 +30,7 @@ class PengaduanController extends Controller
 
 
   function proses_tambah_pengaduan(Request $request){
+
     // vaidasi
     $nama_foto =  $request->foto->getClientOriginalName();
 
@@ -45,7 +46,7 @@ class PengaduanController extends Controller
 
       Pengaduan::create([
         'tgl_pengaduan' => date('Y-m-d'),
-        'nik' => '123',
+        'nik' => Auth::user()->nik,
         'isi_laporan' => $isi_pengaduan,
         'foto' => $request->foto->getClientOriginalName(), // mendapatkan nama foto
         'status' => '0'
