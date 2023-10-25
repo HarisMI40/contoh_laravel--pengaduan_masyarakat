@@ -45,7 +45,7 @@ return [
             'provider' => 'petugas',
         ],
 
-    ],
+],
 
     /*
     |--------------------------------------------------------------------------
@@ -74,6 +74,11 @@ return [
             'model' => App\Models\Petugas::class,
         ],
 
+
+        'petugas' => [
+            'driver' =>'eloquent',
+            'model' => App\Models\petugas::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -107,12 +112,6 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        // 'petugas' => [
-        //     'provider' => 'petugas',
-        //     'table' => 'password_reset_tokens',
-        //     'expire' => 60,
-        //     'throttle' => 60,
-        // ],
     ],
 
     /*

@@ -8,7 +8,7 @@
 
     <h1>Login Petugas</h1>
     <form action={{url('/petugas/login')}} method="post">
-        @method("POST")
+@method("POST")
         @CSRF
         <div>
             Username : <input type="text" name="username">
