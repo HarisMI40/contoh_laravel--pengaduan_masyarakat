@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Pengaduan;
 class PetugasController extends Controller
 {
     public function index(){
-        return view('petugas.home');
+        $pengaduan = Pengaduan::all();
+        return view('petugas.home', compact('pengaduan'));
     }
 }

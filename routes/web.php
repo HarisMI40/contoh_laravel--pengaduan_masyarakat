@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\loginPetugasController;
+use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\AuthController;
 
 Route::get('/about/{id}', [pengaduanController::class, 'tampil_about']);
@@ -27,10 +28,12 @@ Route::post('/petugas/login', [loginPetugasController::class, 'login']);
     });
 
 
-    Route::middleware(['cekPetugas'])->group(function () {
-        Route::get('/petugas/home', [loginPetugasController::class, 'home']);
+    Route::middleware(['cek_petugas'])->group(function () {
+        Route::get('/petugas/home', [PetugasController::class, 'home']);
         Route::get('/petugas', [loginPetugasController::class, 'index']);
         Route::get('/petugas/logout', [loginPetugasController::class, 'logout']);
+        Route::get('/petugas/detail-pengaduan/{id}', [PengaduanController::class, "detail_pengaduan"]);
+        Route::post('/petugas/pengaduan/update/status/{id}', [PengaduanController::class, "update_status"]);
     });
 
 // use App\Http\Controllers\LoginPetugasController;
